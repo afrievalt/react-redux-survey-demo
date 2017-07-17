@@ -1,0 +1,39 @@
+//thais data is not used in the app but was imported into the firebase database
+{
+  "surveyQuestion": {
+    "id": 675123,
+    "text": "How many people live in your household"
+  },
+  "surveyAnswers": [
+    {
+      "id": 41234,
+      "order": 0,
+      "text": "1",
+      "questionId": 675123 
+    },
+    {
+      "id": 41235,
+      "order": 1,
+      "text": "2",
+      "questionId": 675123 
+    },
+    {
+      "id": 41236,
+      "order": 2,
+      "text": "3",
+      "questionId": 675123 
+    },
+    {
+      "id": 41237,
+      "order": 3,
+      "text": "4",
+      "questionId": 675123 
+    },
+    {
+      "id": 41238,
+      "order": 4,
+      "text": "More than 4",
+      "questionId": 675123 
+    }
+  ]
+}
