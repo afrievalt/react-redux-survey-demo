@@ -73,8 +73,7 @@ export const answerQuestionReducer = (prev, {type, payload}) => {
     }
     default: {
       return prev
-    }
-
+    }  
   }
 }
 
