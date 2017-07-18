@@ -16,7 +16,7 @@ export const handleChangeError = (payload) => ({
 const ANSWER_SUBMIT_REQUEST = 'earthling/survey/ANSWER_SUBMIT_REQUEST';
 const handleSubmitAnswerRequest = (userId, answer) => ({
   type: ANSWER_SUBMIT_REQUEST,
-  payload: {[userId]: answer}
+  payload: {userId, answer}
 })
 const ANSWER_SUBMIT_SUCCESS = 'earthling/survey/ANSWER_SUBMIT_SUCCESS';
 const handleSubmitAnswerSuccess = (payload) => ({
@@ -60,11 +60,13 @@ export const answerQuestionReducer = (prev, {type, payload}) => {
       }
    }
    case ANSWER_SUBMIT_REQUEST: {      
+      const {userId, answer} = payload
       return {
         ...prev,
-        allAnswers: {
+        userId, 
+        allAnswers: {          
           ...prev.allAnswers,
-          ...payload
+          [userId]: answer
         },
         error: ""        
       }
@@ -103,7 +105,8 @@ export  const select = {
       text,
       count: countResults[id] || 0,
       percentage: getPercentage (countResults[id], allAnswersKeys.length)
-    })    
-    return state.surveyAnswers.map(mapAnswers)
+    })
+    const {surveyAnswers = []} = state
+    return surveyAnswers.map(mapAnswers)
   }
 }

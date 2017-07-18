@@ -1,5 +1,15 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 5px;
+  padding-left: 20px;
   font-family: sans-serif;
+}
+
+.show-results__text-column {
+  text-align: right;
+  color: gray
+}
+
+.show-results__row--selected {
+  color: green;
+  font-weight: bold;
 }

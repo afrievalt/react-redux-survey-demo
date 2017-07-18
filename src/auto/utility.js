@@ -1,1 +1,0 @@
-export const getLastKeySection = (path='') => path.split('.').slice(-1)[0]

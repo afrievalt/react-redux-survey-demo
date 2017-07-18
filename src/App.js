@@ -1,20 +1,22 @@
 import React, {Component} from 'react'
 import {Provider} from 'react-redux'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import {store} from './store'
 import './App.css';
 import {FirstSection} from './sections/first-section'
 import {ShowResults} from './sections/show-results'
+import {Header} from './sections/header'
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <BrowserRouter>
-          <Switch>            
-            <Route component={ShowResults} path="/results"/>            
-            <Route component={FirstSection} path="/"/>
-          </Switch>
+          <div>
+            <Route component={Header} path="/" />
+            <Route component={FirstSection} exact path="/"/>            
+            <Route component={ShowResults} path="/results"/>           
+          </div>
         </BrowserRouter>
       </Provider>
     );

@@ -16,7 +16,7 @@ export class ShowResultsContent extends Component {
     )
   }
   componentWillMount() {
-    if(this.props.isValid){
+    if(!this.props.isValid){
       window.location = '/' // redirect home if user tries to start at show-results
     }
   }
@@ -24,17 +24,18 @@ export class ShowResultsContent extends Component {
     return this.props.results.map(this.getRow)
   }
   getRow = (result) => {
-    return (<tr key={result.id}>
-        <td>{result.text}</td>
-        <td>{result.count}</td>
-        <td>{result.percentage}%</td>
+    const className = result.id === this.props.answer && 'show-results__row--selected'
+    return (<tr key={result.id} className={className}>
+        <td className='show-results__text-column'>{result.text}</td>
+        <td >{result.count}</td>
+        <td >{`${result.percentage}%`}</td>
       </tr>)
   }  
 }
 
 const mapStateToProps = (state) => {  
   return {
-    results: [],//select.getResults(state)
+    results: select.getResults(state),
     isValid: !!state.answer    
   }
 }
