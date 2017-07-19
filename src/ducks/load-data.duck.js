@@ -1,15 +1,15 @@
 import database from './database';
 
-const DATA_LOAD_REQUEST = 'earthling/survey/DATA_LOAD_REQUEST';
+const DATA_LOAD_REQUEST = 'alf/survey/DATA_LOAD_REQUEST';
 const handleLoadDataRequest = () => ({
   type: DATA_LOAD_REQUEST
 })
-const DATA_LOAD_SUCCESS = 'earthling/survey/DATA_LOAD_SUCCESS';
+const DATA_LOAD_SUCCESS = 'alf/survey/DATA_LOAD_SUCCESS';
 const handleLoadDataSuccess = (payload) => ({
   type: DATA_LOAD_SUCCESS,
   payload
 })
-const DATA_LOAD_FAIL = 'earthling/survey/DATA_LOAD_FAIL';
+const DATA_LOAD_FAIL = 'alf/survey/DATA_LOAD_FAIL';
 const handleLoadDataFail = (payload) => ({
   type: DATA_LOAD_FAIL,
   payload
@@ -20,7 +20,7 @@ export const handleLoadData = () => {
     dispatch(handleLoadDataRequest());
     return database.ref('/').once('value', snap => {
       const payload = snap.val();
-      dispatch(handleLoadDataSuccess(payload))
+      dispatch(handleLoadDataSuccess(payload))      
     })
     .catch((error) => {
       console.log(error);

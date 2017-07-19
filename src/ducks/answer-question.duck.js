@@ -1,29 +1,29 @@
 import uuidv1 from 'uuid/v1'
 import database from './database';
 
-const ANSWER_CHANGE = 'earthling/survey/ANSWER_CHANGE';
+const ANSWER_CHANGE = 'alf/survey/ANSWER_CHANGE';
 export const handleChangeAnswer = (payload) => ({
   type: ANSWER_CHANGE,
   payload
 })
 
-const ERROR_CHANGE = 'earthling/survey/ERROR_CHANGE';
+const ERROR_CHANGE = 'alf/survey/ERROR_CHANGE';
 export const handleChangeError = (payload) => ({
   type: ERROR_CHANGE,
   payload
 })
 
-const ANSWER_SUBMIT_REQUEST = 'earthling/survey/ANSWER_SUBMIT_REQUEST';
+const ANSWER_SUBMIT_REQUEST = 'alf/survey/ANSWER_SUBMIT_REQUEST';
 const handleSubmitAnswerRequest = (userId, answer) => ({
   type: ANSWER_SUBMIT_REQUEST,
   payload: {userId, answer}
 })
-const ANSWER_SUBMIT_SUCCESS = 'earthling/survey/ANSWER_SUBMIT_SUCCESS';
+const ANSWER_SUBMIT_SUCCESS = 'alf/survey/ANSWER_SUBMIT_SUCCESS';
 const handleSubmitAnswerSuccess = (payload) => ({
   type: ANSWER_SUBMIT_SUCCESS,
   payload
 })
-const ANSWER_SUBMIT_FAIL = 'earthling/survey/ANSWER_SUBMIT_FAIL';
+const ANSWER_SUBMIT_FAIL = 'alf/survey/ANSWER_SUBMIT_FAIL';
 const handleSubmitAnswerFail = (payload) => ({
   type: ANSWER_SUBMIT_FAIL,
   payload

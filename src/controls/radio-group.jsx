@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import {LabelWrap} from './label-wrap'
 
-class RadioInput extends Component {
+export class RadioGroup extends Component {
   render() {
     const radios = this.getRadios(this.props.options)
     return (
@@ -15,8 +15,15 @@ class RadioInput extends Component {
   getRadioControl = (listItem, index) => {
     const isChecked = +this.props.value === listItem.id
     return (
-      <label key={index}>
-        <input value={listItem.id} type='radio' name={this.props.path}  onChange={this.handleChange}
+      <label 
+        key={index}
+        className='radio-group__label'          
+      >
+        <input 
+          value={listItem.id} 
+          type='radio' 
+          name={this.props.groupName}  
+          onChange={this.handleChange}
           checked={isChecked}
         />
         <span>{listItem.text}</span>
@@ -24,13 +31,6 @@ class RadioInput extends Component {
     )
   }
   handleChange = event => {
-    this
-      .props
-      .onChange(event.target.value)
+    this.props.onChange(event.target.value)
   }
-
 }
-
-export const RadioInputAuto = RadioInput
-
-export default RadioInputAuto

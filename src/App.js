@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import {Provider} from 'react-redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import {store} from './store'
-import './App.css';
-import {FirstSection} from './sections/first-section'
+import {ShowQuestion} from './sections/show-question'
 import {ShowResults} from './sections/show-results'
 import {Header} from './sections/header'
 
@@ -14,7 +13,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Route component={Header} path="/" />
-            <Route component={FirstSection} exact path="/"/>            
+            <Route component={ShowQuestion} exact path="/"/>            
             <Route component={ShowResults} path="/results"/>           
           </div>
         </BrowserRouter>

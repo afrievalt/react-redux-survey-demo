@@ -6,7 +6,9 @@ export class HeaderContent extends Component {
     return (
       <header>                    
           <h2>Survey Demo</h2>
-          <h3 className='header__error'>{this.props.error}</h3>
+          <div className='header__message-wrapper'>
+            <div className='header__message--error'>{this.props.error}</div>
+          </div>
       </header>  
     )    
   }  

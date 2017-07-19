@@ -7,10 +7,12 @@ export class ShowResultsContent extends Component {
   render() {
     const rows = this.getRows()
     return (
-      <div>
-        <h3>Results</h3>
-        <table>
-          {rows}
+      <div className='show-results'>
+        <h3 className='show-results__header'>Results</h3>
+        <table className='show-results__table'>
+          <tbody>
+            {rows}
+          </tbody>
         </table>
       </div>
     )
@@ -24,11 +26,11 @@ export class ShowResultsContent extends Component {
     return this.props.results.map(this.getRow)
   }
   getRow = (result) => {
-    const className = result.id === this.props.answer && 'show-results__row--selected'
+    const className = (result.id === +this.props.answer) ? 'show-results__row--selected' : undefined
     return (<tr key={result.id} className={className}>
         <td className='show-results__text-column'>{result.text}</td>
-        <td >{result.count}</td>
-        <td >{`${result.percentage}%`}</td>
+        <td >{`(${result.count} answered`}</td>
+        <td >{`${result.percentage}%)`}</td>
       </tr>)
   }  
 }
@@ -36,6 +38,7 @@ export class ShowResultsContent extends Component {
 const mapStateToProps = (state) => {  
   return {
     results: select.getResults(state),
+    answer: state.answer,
     isValid: !!state.answer    
   }
 }
