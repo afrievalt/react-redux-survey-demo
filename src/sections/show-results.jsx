@@ -16,12 +16,7 @@ export class ShowResultsContent extends Component {
         </table>
       </div>
     )
-  }
-  componentWillMount() {
-    if(!this.props.isValid){
-      window.location = '/' // redirect home if user tries to start at show-results
-    }
-  }
+  }  
   getRows = () => {
     return this.props.results.map(this.getRow)
   }
@@ -38,8 +33,7 @@ export class ShowResultsContent extends Component {
 const mapStateToProps = (state) => {  
   return {
     results: select.getResults(state),
-    answer: state.answer,
-    isValid: !!state.answer    
+    answer: state.answer
   }
 }
 
